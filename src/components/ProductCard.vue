@@ -5,23 +5,26 @@
     >
       <img
         class="w-full h-96 md:h-auto object-cover md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg"
-        src="https://mdbootstrap.com/wp-content/uploads/2020/06/vertical.jpg"
-        alt=""
+        :src="product.image"
+        alt="Product-Image"
       />
-      <div class="p-6 flex flex-col justify-start">
-        <router-link :to="{ name: 'product', params: { id: 23 } }">
-          <h5 class="text-gray-900 text-xl font-medium mb-2">Title</h5>
-        </router-link>
-        <p class="text-gray-700 text-base mb-4">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
-        <p class="text-gray-600 text-xs">Price Rs987</p>
-      </div>
+      <router-link :to="{ name: 'product', params: { id: product.id } }">
+        <div class="p-6 flex flex-col justify-start">
+          <h5 class="text-gray-900 text-xl font-medium mb-2">
+            {{ product.title }}
+          </h5>
+          <p class="text-gray-700 text-base mb-4">
+            {{ product.description }}
+          </p>
+          <p class="text-gray-600 text-xs">${{ product.price }}</p>
+        </div>
+      </router-link>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: ["product"],
+};
 </script>
