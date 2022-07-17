@@ -30,14 +30,18 @@
       >
         <li class="text-gray-100 font-bold mt-4 md:mt-0">Home</li>
         <li class="text-gray-100 font-bold">Products</li>
-        <li class="text-gray-100 font-bold">About</li>
+        <Cart />
       </ul>
     </nav>
   </div>
 </template>
 
 <script>
+import Cart from "./Cart.vue";
 export default {
+  components: {
+    Cart,
+  },
   data() {
     return {
       showMenu: false,
