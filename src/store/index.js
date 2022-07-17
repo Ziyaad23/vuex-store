@@ -42,6 +42,9 @@ export default createStore({
         },
         addProductToCart({ commit }, { product, quantity }) {
             commit('ADD_TO_CART', { product, quantity })
+        },
+        removeProduct({ commit }, product) {
+            commit('REMOVE_PRODUCT', product);
         }
     },
     mutations: {
@@ -65,6 +68,11 @@ export default createStore({
             state.cart.push({
                 product,
                 quantity
+            })
+        },
+        REMOVE_PRODUCT(state, product) {
+            state.cart = state.cart.filter(item => {
+                return item.product.id !== product.id;
             })
         }
     }

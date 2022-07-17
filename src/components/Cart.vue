@@ -35,7 +35,11 @@
             </p>
           </div>
           <div>
-            <a href="#" class="bg-gray-500 p-1 font-bold text-white">remove</a>
+            <a
+              class="bg-gray-500 p-1 font-bold text-white"
+              @click.prevent="removeProduct(item.product)"
+              >remove</a
+            >
           </div>
         </div>
         <div
@@ -44,7 +48,7 @@
           <div>
             <p class="font-bold">Total: ${{ cartTotalPrice }}</p>
           </div>
-          <div><a href="#" class="font-bold">Clear Cart</a></div>
+          <div><a href="#" class="font-bold text-blue-500">Clear Cart</a></div>
         </div>
       </div>
     </div>
@@ -67,6 +71,11 @@ export default {
     return {
       show: false,
     };
+  },
+  methods: {
+    removeProduct(product) {
+      this.$store.dispatch("removeProduct", product);
+    },
   },
 };
 </script>
