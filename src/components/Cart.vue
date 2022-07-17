@@ -21,7 +21,7 @@
       </button>
       <div
         v-show="show"
-        class="absolute right-0 py-2 mt-2 bg-white rounded-md shadow-xl w-60"
+        class="absolute -right-20 md:right-0 py-2 mt-2 bg-white rounded-md shadow-xl w-72"
       >
         <router-link
           to="/"
