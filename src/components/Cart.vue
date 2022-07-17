@@ -23,47 +23,40 @@
         v-show="show"
         class="absolute -right-20 md:right-0 py-2 mt-2 bg-white rounded-md shadow-xl w-72"
       >
-        <router-link
-          to="/"
-          class="block px-4 py-2 text-sm text-black hover:bg-blue-500 hover:text-white"
+        <div
+          class="flex justify-between block px-4 py-2 text-sm text-black hover:bg-blue-500 hover:text-white"
+          v-for="item in cart"
+          :key="item.product.id"
         >
-          <div class="flex justify-between">
-            <div>
-              <p>Product Title</p>
-              <p>1 x $23</p>
-            </div>
-            <div><a href="#">Remove</a></div>
+          <div class="w-40">
+            <p>{{ item.product.title }}</p>
+            <p class="font-semibold">
+              {{ item.quantity }} x ${{ item.product.price }}
+            </p>
           </div>
-        </router-link>
-        <router-link
-          to="/"
-          class="block px-4 py-2 text-sm text-black hover:bg-blue-500 hover:text-white"
+          <div>
+            <a href="#" class="bg-gray-500 p-1 font-bold text-white">remove</a>
+          </div>
+        </div>
+        <div
+          class="flex justify-between block px-4 py-2 text-sm text-black hover:bg-blue-500 hover:text-white"
         >
-          <div class="flex justify-between">
-            <div>
-              <p>Product Title</p>
-              <p>1 x $23</p>
-            </div>
-            <div><a href="#">Remove</a></div>
+          <div>
+            <p class="font-bold">Total: $23</p>
           </div>
-        </router-link>
-        <router-link
-          to="/"
-          class="block px-4 py-2 text-sm text-black hover:bg-blue-500 hover:text-white"
-        >
-          <div class="flex justify-between">
-            <div>
-              <p class="font-bold">Total: $23</p>
-            </div>
-            <div><a href="#" class="font-bold">Clear Cart</a></div>
-          </div>
-        </router-link>
+          <div><a href="#" class="font-bold">Clear Cart</a></div>
+        </div>
       </div>
     </div>
   </div>
 </template>
 <script>
 export default {
+  computed: {
+    cart() {
+      return this.$store.state.cart;
+    },
+  },
   data() {
     return {
       show: false,
