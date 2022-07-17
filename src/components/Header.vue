@@ -29,7 +29,7 @@
         class="flex-col mt-4 space-y-4 md:flex md:space-y-0 border-t border-white md:border-0 md:flex-row md:items-center md:space-x-10 md:mt-0"
       >
         <router-link to="/">
-          <li class="text-gray-100 font-bold">Products</li>
+          <li class="text-gray-100 font-bold mt-4">Products</li>
         </router-link>
         <Cart />
       </ul>
