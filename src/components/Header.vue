@@ -28,8 +28,9 @@
         :class="showMenu ? 'flex' : 'hidden'"
         class="flex-col mt-4 space-y-4 md:flex md:space-y-0 border-t border-white md:border-0 md:flex-row md:items-center md:space-x-10 md:mt-0"
       >
-        <li class="text-gray-100 font-bold mt-4 md:mt-0">Home</li>
-        <li class="text-gray-100 font-bold">Products</li>
+        <router-link to="/">
+          <li class="text-gray-100 font-bold">Products</li>
+        </router-link>
         <Cart />
       </ul>
     </nav>

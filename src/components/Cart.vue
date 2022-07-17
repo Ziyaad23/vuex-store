@@ -42,13 +42,18 @@
             >
           </div>
         </div>
-        <div
-          class="flex justify-between block px-4 py-2 text-sm text-black hover:bg-blue-500 hover:text-white"
-        >
+        <div class="flex justify-between block px-4 py-2 text-sm text-black">
           <div>
             <p class="font-bold">Total: ${{ cartTotalPrice }}</p>
           </div>
-          <div><a href="#" class="font-bold text-blue-500">Clear Cart</a></div>
+          <div>
+            <a
+              href="#"
+              class="font-bold text-blue-500"
+              @click.prevent="clearCart()"
+              >Clear Cart</a
+            >
+          </div>
         </div>
       </div>
     </div>
@@ -75,6 +80,9 @@ export default {
   methods: {
     removeProduct(product) {
       this.$store.dispatch("removeProduct", product);
+    },
+    clearCart() {
+      this.$store.dispatch("clearCart");
     },
   },
 };
