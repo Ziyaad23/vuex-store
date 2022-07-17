@@ -5,7 +5,7 @@
         @click="show = !show"
         class="flex items-center p-2 text-white rounded-md font-bold"
       >
-        <span class="mr-4">Cart (0)</span>
+        <span class="mr-4">{{ cartItemCount }} in Cart</span>
         <svg
           class="w-5 h-5 text-white"
           xmlns="http://www.w3.org/2000/svg"
@@ -42,7 +42,7 @@
           class="flex justify-between block px-4 py-2 text-sm text-black hover:bg-blue-500 hover:text-white"
         >
           <div>
-            <p class="font-bold">Total: $23</p>
+            <p class="font-bold">Total: ${{ cartTotalPrice }}</p>
           </div>
           <div><a href="#" class="font-bold">Clear Cart</a></div>
         </div>
@@ -55,6 +55,12 @@ export default {
   computed: {
     cart() {
       return this.$store.state.cart;
+    },
+    cartItemCount() {
+      return this.$store.getters.cartItemCount;
+    },
+    cartTotalPrice() {
+      return this.$store.getters.cartTotalPrice;
     },
   },
   data() {

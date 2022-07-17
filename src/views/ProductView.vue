@@ -21,6 +21,7 @@
               <p class="font-bold mb-6">${{ product.price }}</p>
               <button
                 class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                @click="addToCart()"
               >
                 Add to Cart
               </button>
@@ -41,9 +42,16 @@ export default {
       return this.$store.state.product;
     },
   },
-
   mounted() {
     this.$store.dispatch("getProduct", this.id);
+  },
+  methods: {
+    addToCart() {
+      this.$store.dispatch("addProductToCart", {
+        product: this.product,
+        quantity: 1,
+      });
+    },
   },
 };
 </script>
