@@ -53,10 +53,9 @@
         >
           <div class="flex justify-between">
             <div>
-              <p>Product Title</p>
-              <p>1 x $23</p>
+              <p class="font-bold">Total: $23</p>
             </div>
-            <div><a href="#">Remove</a></div>
+            <div><a href="#" class="font-bold">Clear Cart</a></div>
           </div>
         </router-link>
       </div>
